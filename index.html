@@ -11,7 +11,7 @@
 <body>
 <h1>Custom Actions</h1>
   <script>
-    parent.window.postMessage({ status: 'ready' }, '*');
+    // parent.window.postMessage({ status: 'ready' }, '*');
     window.addEventListener("message", event => {
       console.log('ccccc', event.origin);
       document.write(JSON.stringify(event.data,null,2));
