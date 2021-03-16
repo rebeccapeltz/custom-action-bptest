@@ -13,7 +13,8 @@
       "type": "cloud_name"
     },
     "assets": {
-      "type": "selected_items"
+      "type": "selected_items",
+      "attributes": ["public_id", "resource_type", "tags", "context"]
     }
   },
   "app_active": true,
