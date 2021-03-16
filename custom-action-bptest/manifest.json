@@ -1,0 +1,48 @@
+{
+  "app_id": "custom-action-bptest",
+  "app_name": "Custom Action Testing",
+  "app_url": "http://www.beckypeltz.me/custom-action-bptest/",
+  "app_role": [
+    "media_library_user",
+    "media_library_admin",
+    "admin",
+    "master_admin"
+  ],
+  "app_url_params": {
+    "cloudName": {
+      "type": "cloud_name"
+    }
+  },
+  "app_message_params": {
+    "assets": {
+      "type": "selected_items",
+      "attributes": [
+        "public_id",
+        "resource_type",
+        "tags",
+        "context"
+      ]
+    }
+  },
+  "app_active": true,
+  "app_open_in": "modal",
+  "app_supporeted_devices": [
+    "desktop",
+    "tablet",
+    "mobile"
+  ],
+  "action_label": "BP Test",
+  "action_showinpage": [
+    "folders"
+  ],
+  "action_icon": "https://cloudinary-res.cloudinary.com/image/upload/console/custom-actions/custom-action-bptest/water-pump.svg",
+  "asset_type": [
+    "image"
+  ],
+  "selection_mode": [
+    "multiple"
+  ],
+  "selection_type": [
+    "asset"
+  ]
+}

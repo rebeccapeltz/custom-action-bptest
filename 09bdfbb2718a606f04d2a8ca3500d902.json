@@ -7,6 +7,10 @@
     {
       "app_id": "custom-action-product-gallery",
       "allowed_customers": "all"
+    },
+    {
+      "app_id": "custom-action-bptest",
+      "allowed_customers": "picturecloud7"
     }
   ]
 }
