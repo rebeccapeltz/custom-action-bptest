@@ -1,0 +1,12 @@
+{
+  "apps": [
+    {
+      "app_id": "custom-action-video-player-studio",
+      "allowed_customers": "all"
+    },
+    {
+      "app_id": "custom-action-product-gallery",
+      "allowed_customers": "all"
+    }
+  ]
+}
