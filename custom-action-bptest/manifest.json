@@ -18,7 +18,7 @@
     }
   },
   "app_permissions": {
-    "asset": ["update:tags", "update:transformation", "download"],
+    "asset": ["update:tags", "update:transformation", "download","upload"],
     "collection": ["create", "get", "update:assets"]
  },
   "app_active": true,
