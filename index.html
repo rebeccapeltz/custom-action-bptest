@@ -1,24 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://custom-action.cloudinary.com/all.js"></script>
+    <title>Custom Action Test</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://custom-action.cloudinary.com/all.js"></script>
-  <title>Custom Action Test</title>
-</head>
+  <body>
+    Loading...
+    <script>
+      async function testFun() {
+        const customAction = window.cloudinary.customAction;
+        const data = await customAction.getConfig();
+        const { assets } = data;
 
-<body>
-  Loading...
-  <script>
-    parent.window.postMessage({ status: 'ready' }, '*');
-    window.addEventListener("message", event => {
-      console.log('ccccc', event.origin);
-      document.write(JSON.stringify(event.data, null, 2));
-    });
-  </script>
+        customAction
+          .updateItems({
+            itemType: "asset",
+            ids: assets.map((asset) => asset.id),
+            prop: "tags",
+            value: ["tagA", "tagB"],
+          })
+          .then((data) => {
+            console.log("done", data);
+          })
+          .catch((e) => {
+            console.log("Error :(", e);
+          });
+      }
 
-</body>
+      parent.window.postMessage({ status: "ready" }, "*");
 
+      //message
+      window.addEventListener("message", (event) => {
+        console.log("event", event);
+        console.log(JSON.stringify(event.data));
+      });
+
+      const customAction = window.cloudinary.customAction;
+      const data = await customAction.getConfig();
+
+      //config
+      // window.cloudinary.customAction.getConfig().then((data) => {
+      //   console.log("data", data);
+      //   const { assets, cloudName } = data;
+      // });
+
+      //toast
+      window.cloudinary.customAction.showToast(
+        "custom action loaded",
+        "success"
+      );
+
+      // call fn
+      testFun();
+    </script>
+  </body>
 </html>
