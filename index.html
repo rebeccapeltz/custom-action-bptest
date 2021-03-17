@@ -13,7 +13,10 @@
   Loading...
   <script>
     function upload() {
-      window.cloudinary.customAction.upload({
+      const customAction = window.cloudinary.customAction;
+      console.log("in custom action");
+      debugger;
+      customAction.upload({
         urls: ['data:image/gif;base64,R0lGODlhyAAiALM...DfD0QAADs='],
         name: 'red-panda'
       }).then(data => {
@@ -24,6 +27,7 @@
           "success"
         );
       }).catch(e => {
+        console.log("error",e);
         // error
       });
     }
