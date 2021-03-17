@@ -1,62 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://custom-action.cloudinary.com/all.js"></script>
-    <title>Custom Action Test</title>
-  </head>
 
-  <body>
-    Loading...
-    <script>
-      async function testFun() {
-        console.log("testFun");
-        const customAction = window.cloudinary.customAction;
-        const data = await customAction.getConfig();
-        console.log("data",data)
-        const { assets } = data;
-        console.log("assets",assets)
-        customAction
-          .updateItems({
-            itemType: "asset",
-            ids: assets.map((asset) => asset.id),
-            prop: "tags",
-            value: ["tagA", "tagB"],
-          })
-          .then((data) => {
-            console.log("done", data);
-          })
-          .catch((e) => {
-            console.log("Error :(", e);
-          });
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://custom-action.cloudinary.com/all.js"></script>
+  <title>Custom Action Test</title>
+</head>
 
-      parent.window.postMessage({ status: "ready" }, "*");
-
-      //message
-      window.addEventListener("message", (event) => {
-        console.log("event", event);
-        console.log(JSON.stringify(event.data));
+<body>
+  Loading...
+  <script>
+    function upload() {
+      window.cloudinary.customAction.upload({
+        urls: ['data:image/gif;base64,R0lGODlhyAAiALM...DfD0QAADs='],
+        name: 'red-panda'
+      }).then(data => {
+        // data
+        //toast
+        window.cloudinary.customAction.showToast(
+          "upload is good",
+          "success"
+        );
+      }).catch(e => {
+        // error
       });
+    }
+
+    async function testFun() {
+      console.log("testFun");
+      const customAction = window.cloudinary.customAction;
+      const data = await customAction.getConfig();
+      console.log("data", data)
+      const { assets } = data;
+      console.log("assets", assets)
+      customAction
+        .updateItems({
+          itemType: "asset",
+          ids: assets.map((asset) => asset.id),
+          prop: "tags",
+          value: ["tagA", "tagB"],
+        })
+        .then((data) => {
+          console.log("done", data);
+        })
+        .catch((e) => {
+          console.log("Error :(", e);
+        });
+    }
+
+    parent.window.postMessage({ status: "ready" }, "*");
+
+    //message
+    window.addEventListener("message", (event) => {
+      console.log("event", event);
+      console.log(JSON.stringify(event.data));
+    });
 
 
 
-      //config
-      // window.cloudinary.customAction.getConfig().then((data) => {
-      //   console.log("data", data);
-      //   const { assets, cloudName } = data;
-      // });
+    //config
+    // window.cloudinary.customAction.getConfig().then((data) => {
+    //   console.log("data", data);
+    //   const { assets, cloudName } = data;
+    // });
 
-      //toast
-      window.cloudinary.customAction.showToast(
-        "custom action loaded",
-        "success"
-      );
+      upload();
 
-      // call fn
-      testFun();
-    </script>
-  </body>
+    // call fn
+    // testFun();
+  </script>
+</body>
+
 </html>

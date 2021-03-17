@@ -17,6 +17,10 @@
       "attributes": ["public_id", "resource_type", "tags", "context"]
     }
   },
+  "app_permissions": {
+    "asset": ["update:tags", "update:transformation", "download"],
+    "collection": ["create", "get", "update:assets"]
+ },
   "app_active": true,
   "app_open_in": "modal",
   "app_supporeted_devices": ["desktop", "tablet", "mobile"],
