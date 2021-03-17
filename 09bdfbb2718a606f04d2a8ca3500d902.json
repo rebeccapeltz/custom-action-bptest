@@ -10,7 +10,7 @@
     },
     {
       "app_id": "custom-action-bptest",
-      "allowed_customers": "pictures77"
+      "allowed_customers": ["d083c85fc97351ea27e6f4a39403d5"]
     }
   ]
 }
