@@ -12,6 +12,7 @@
     Loading...
     <script>
       async function testFun() {
+        debugger;
         const customAction = window.cloudinary.customAction;
         const data = await customAction.getConfig();
         const { assets } = data;
