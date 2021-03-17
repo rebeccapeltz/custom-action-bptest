@@ -12,11 +12,12 @@
     Loading...
     <script>
       async function testFun() {
-        debugger;
+        console.log("testFun");
         const customAction = window.cloudinary.customAction;
         const data = await customAction.getConfig();
+        console.log("data",data)
         const { assets } = data;
-
+        console.log("assets",assets)
         customAction
           .updateItems({
             itemType: "asset",
