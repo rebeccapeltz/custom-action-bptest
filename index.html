@@ -19,9 +19,10 @@
       customAction.upload({
         urls: ['data:image/gif;base64,R0lGODlhyAAiALM...DfD0QAADs='],
         name: 'red-panda'
-      }).then(data => {
+      }).then(uploadResponse => {
         // data
         //toast
+        console.log("uploadResponse",uploadResponse);
         window.cloudinary.customAction.showToast(
           "upload is good",
           "success"

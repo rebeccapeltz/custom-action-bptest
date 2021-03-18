@@ -14,20 +14,46 @@
     },
     "assets": {
       "type": "selected_items",
-      "attributes": ["public_id", "resource_type", "tags", "context"]
+      "attributes": [
+        "public_id",
+        "resource_type",
+        "tags",
+        "context"
+      ]
     }
   },
   "app_permissions": {
-    "asset": ["update:tags", "update:transformation", "download","upload"],
-    "collection": ["create", "get", "update:assets"]
- },
+    "asset": [
+      "update:tags",
+      "update:transformation",
+      "download",
+      "upload"
+    ],
+    "collection": [
+      "create",
+      "get",
+      "update:assets"
+    ]
+  },
   "app_active": true,
   "app_open_in": "modal",
-  "app_supporeted_devices": ["desktop", "tablet", "mobile"],
+  "app_supporeted_devices": [
+    "desktop",
+    "tablet",
+    "mobile"
+  ],
   "action_label": "BP Test",
-  "action_showinpage": ["folders"],
+  "action_showinpage": [
+    "folders"
+  ],
   "action_icon": "https://res.cloudinary.com/prod/raw/upload/console/custom-actions/custom-action-bptest/manifest.json",
-  "asset_type": ["image"],
-  "selection_mode": ["multiple"],
-  "selection_type": ["asset"]
+  "asset_type": [
+    "image"
+  ],
+  "selection_mode": [
+    "multiple"
+  ],
+  "selection_type": [
+    "asset"
+  ]
 }
