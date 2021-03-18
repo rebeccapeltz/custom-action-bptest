@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", (e) => {
   document.getElementById("pasteArea").onpaste = function (event) {
+    debugger;
     // use event.originalEvent.clipboard for newer chrome versions
     var items = (event.clipboardData || event.originalEvent.clipboardData)
       .items;
