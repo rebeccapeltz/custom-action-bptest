@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", (e) => {
+document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("pasteArea").onpaste = function (event) {
     debugger;
     // use event.originalEvent.clipboard for newer chrome versions
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
         window.cloudinary.customAction
           .upload({
             urls: [blob],
-            name: "redstar",
+            name: "copypaste",
           })
           .then((uploadResponse) => {
             //toast
