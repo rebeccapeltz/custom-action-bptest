@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         window.cloudinary.customAction
           .upload({
-            urls: [blob],
+            urls: [event.target.result],
             name: "copypaste",
           })
           .then((uploadResponse) => {
