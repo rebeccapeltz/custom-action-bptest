@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://custom-action.cloudinary.com/all.js"></script>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./paste.js"></script>
+    <title>Custom Action Test</title>
+  </head>
+
+  <body>
+    <h1>Copy/Paste Base 64 image for upload</h1>
+    <input id="publicid" type="text" placeholder="Enter public id for new image" >
+    <textarea
+      id="paste-area"
+      rows="10"
+      cols="60"
+      placeholder="Paste Image Here"
+    ></textarea>
+    <section class="image-display">
+      <img id="pastedimage" width="400" />
+    </section>
+
+    <script>
+      function upload() {
+        const customAction = window.cloudinary.customAction;
+        console.log("in custom action");
+        debugger;
+        customAction
+          .upload({
+            urls: [
+              "data:image/gif;base64,R0lGODlhEAAQAMQAAORHHOVSKudfOulrSOp3WOyDZu6QdvCchPGolfO0o/XBs/fNwfjZ0frl3/zy7////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAABAALAAAAAAQABAAAAVVICSOZGlCQAosJ6mu7fiyZeKqNKToQGDsM8hBADgUXoGAiqhSvp5QAnQKGIgUhwFUYLCVDFCrKUE1lBavAViFIDlTImbKC5Gm2hB0SlBCBMQiB0UjIQA7",
+            ],
+            name: "redstar",
+          })
+          .then((uploadResponse) => {
+            // data
+            //toast
+            console.log("uploadResponse", uploadResponse);
+            window.cloudinary.customAction.showToast(
+              "upload is good",
+              "success"
+            );
+          })
+          .catch((e) => {
+            console.log("error", e);
+            // error
+          });
+      }
+
+      async function testFun() {
+        console.log("testFun");
+        const customAction = window.cloudinary.customAction;
+        const data = await customAction.getConfig();
+        console.log("data", data);
+        const { assets } = data;
+        console.log("assets", assets);
+        customAction
+          .updateItems({
+            itemType: "asset",
+            ids: assets.map((asset) => asset.id),
+            prop: "tags",
+            value: ["tagA", "tagB"],
+          })
+          .then((data) => {
+            console.log("done", data);
+          })
+          .catch((e) => {
+            console.log("Error :(", e);
+          });
+      }
+
+      parent.window.postMessage({ status: "ready" }, "*");
+
+      //message
+      window.addEventListener("message", (event) => {
+        console.log("event", event);
+        console.log(JSON.stringify(event.data));
+      });
+
+      //config see if we can get folder in which selection made
+      // window.cloudinary.customAction.getConfig().then((data) => {
+      //   console.log("data", data);
+      //   const { public_id, folderPath, resource_type, tags, context, cloudName } = data;
+      //   console.log("folderPath",folderPath);
+      // });
+
+      // upload();
+
+      // call fn
+      // testFun();
+    </script>
+  </body>
+</html>
