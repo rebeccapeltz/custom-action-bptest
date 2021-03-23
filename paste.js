@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
           window.cloudinary.customAction
             .upload({
               urls: [event.target.result],
-              name: "copypaste",
+              name: publicId,
             })
             .then((uploadResponse) => {
               //toast
