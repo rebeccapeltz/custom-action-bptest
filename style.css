@@ -2,24 +2,36 @@ body {
   background-color: #eeeef1;
 }
 
-#paste-area, .image-display , #publicid{
+#paste-area,
+.image-display,
+#publicid {
   width: 400px;
   margin: 1rem auto;
   display: block;
 }
-inpute::placeholder, textarea::placeholder {
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+inpute::placeholder,
+textarea::placeholder {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
 /* .image-display {
   border: 1px solid black;
 } */
 
-h1 {
+h1, p {
   text-align: center;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
-icon {
-  width: 100px;
+.icon {
+    display: block;
+    margin: 1rem auto;
+    text-indent: -9999px;
+    width: 90px;
+    height: 80px;
+    background: url(magick-trick.svg);
+    background-size: 100px 82px;
+  }
 }
