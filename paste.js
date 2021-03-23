@@ -38,7 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
           document.querySelector("#paste-area").innerHTML = event.target.result;
 
           console.log("in custom action");
-          debugger;
 
           window.cloudinary.customAction
             .upload({
