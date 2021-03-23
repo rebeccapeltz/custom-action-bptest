@@ -1,6 +1,6 @@
 {
   "app_id": "custom-action-copy-paste",
-  "app_name": "Custom Action Testing",
+  "app_name": "Custom Action Copy Paste",
   "app_url": "https://www.beckypeltz.me/custom-action-bptest/paste.html",
   "app_role": [
     "media_library_user",
