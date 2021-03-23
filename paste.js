@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const target = document.querySelector("#paste-area");
 
   target.addEventListener("paste", (event) => {
-    const publicId = document.querySelector("#publicid").textContent;
+    const publicId = document.querySelector("input").value;
     //fail if no public id
     if ( publicId.length === 0){
       window.cloudinary.customAction.showToast(

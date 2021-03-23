@@ -1,5 +1,5 @@
 body {
-  background-color: #adadad;
+  background-color: #eeeef1;
 }
 
 #paste-area, .image-display , #publicid{
@@ -18,4 +18,8 @@ inpute::placeholder, textarea::placeholder {
 h1 {
   text-align: center;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+icon {
+  width: 100px;
 }
